@@ -1,3 +1,4 @@
+// src/components/Square/index.js
 import React from 'react'
 import styled from 'styled-components'
 import { isUndefined } from 'ramda-adjunct'
@@ -19,8 +20,10 @@ const StyledSquare = styled.div`
 StyledSquare.defaultName = 'StyledSquare'
 
 export default function Square ({ handleClick, index, player }) {
-  return (
-    <StyledSquare index={index} player={player} onClick={handleClick}>
+  return isUndefined(player) ? (
+    <StyledSquare index={index} onClick={handleClick} />
+  ) : (
+    <StyledSquare index={index} player={player}>
       {player}
     </StyledSquare>
   )
